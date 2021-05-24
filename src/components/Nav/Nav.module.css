@@ -1,0 +1,71 @@
+.nav{
+    grid-area: nav;
+    background: #2787F5;
+    width: 100%;
+  }
+  
+  /* .nav :nth-child(1){
+    margin-top: 10px;
+  } */
+  
+
+  .item {
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+  }
+
+  .link{
+    text-decoration: none;
+    font-weight: 400;
+    color: #fff;
+   
+  }
+
+  .link:hover{
+    cursor: pointer;
+    color: lightskyblue
+  }
+
+  /* .link:visited{
+    text-decoration: none;
+    font-weight: 400;
+    color: #fff;
+  } */
+
+  .active{
+    color: darkblue;
+    text-decoration: none;
+  }
+
+  .friends{
+    color: #fff;
+    font-weight: 100;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    display: block;
+    margin-top: 60px;
+    text-align: center;
+    padding: 10px 0;
+    
+  }
+
+  .img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .name{
+    display: block;
+    padding: 2px
+  }
+
+ .flex{
+   display: flex;
+   font-size: .5rem;
+   justify-content: space-around;
+   margin-top: 20px;
+ }

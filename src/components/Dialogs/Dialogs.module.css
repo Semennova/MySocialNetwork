@@ -1,0 +1,34 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    background: linen
+}
+
+.dialog .link{
+    color: blueviolet;
+    text-decoration: none;
+}
+
+
+.dialogItems .active{
+    color: darkblue
+}
+
+.dialog{
+    padding: 10px
+}
+
+.message {
+    padding: 10px
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.btn {
+    display: block;
+}
+

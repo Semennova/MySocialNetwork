@@ -1,0 +1,29 @@
+.flex{
+    display: flex;
+}
+
+.img{
+    display: inline;
+    width: 100px;
+    margin: 0 20px 10px 0
+}
+
+.btn{
+    display: block;
+    margin-bottom: 25px;
+    
+}
+
+.textSpan{
+    padding: 10px
+}
+
+.selectedPage{
+    font-weight: bold;
+}
+
+.pageNum, .selectedPage{
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}

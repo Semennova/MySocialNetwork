@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,100;1,300&display=swap');
+
+
+*{
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+.app-wrapper {
+  margin: 0 auto;
+  width: 1200px;
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "nav content";
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+  
+}
+
+.app-wrapper-content{
+  grid-area: content;
+  /* height: 100vh; */
+
+}
+
+
+
