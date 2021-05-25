@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import { Input } from '../../assets/img/FormControls/FormControls'
+import { Input } from '../../assets/FormControls/FormControls'
 import { required } from '../../utils/validators'
 import { login } from '../../redux/auth-reducer'
 import { Redirect } from 'react-router'
-import { authAPI } from '../../api/api'
+import s from '../../assets/FormControls/FormControls.module.css'
 
 
 let LoginForm = (props) => {
@@ -21,6 +21,9 @@ let LoginForm = (props) => {
     <div>
         <Field type={'checkbox'}  name={'rememberMe'} component={Input} validate={[required]}/> remember me
     </div>
+    { props.error && <div className={s.formSummeryError}>
+        {props.error}
+    </div>}
     <div>
         <button>Log in</button>
     </div>
@@ -40,7 +43,7 @@ const Login = (props) => {
     if(props.isAuth){
         return <Redirect to={'/profile'} />
     }
-    
+
     return <div>
         <h1>LOGIN</h1>
 

@@ -10,17 +10,21 @@ import News from './components/News/News';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
+import { getAuthUserData } from './redux/auth-reducer';
+import { connect } from 'react-redux';
 
 
 
-const App = (props)=> {
+class App extends React.Component {
+  componentDidMount(){
+    this.props.getAuthUserData()
+  }
  
-
-  return (
-
+  render() {
+    return (
     <div className="app-wrapper">
         <HeaderContainer />
-        <Nav store={props.store}/>
+        <Nav />
         
 
 
@@ -39,8 +43,8 @@ const App = (props)=> {
         </div>
     </div>
 
-   
-  );
+    )
+  }
 }
 
-export default App;
+export default connect(null, { getAuthUserData })(App);

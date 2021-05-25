@@ -4,7 +4,7 @@ import DialogItems from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import { Redirect } from 'react-router'
 import { Field, reduxForm } from 'redux-form'
-import { Textarea } from '../../assets/img/FormControls/FormControls'
+import { Textarea } from '../../assets/FormControls/FormControls'
 import { maxLengthCreator, required } from '../../utils/validators'
 
 
