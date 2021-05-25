@@ -3,7 +3,6 @@ import Users from './Users'
 import { connect } from 'react-redux'
 import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers } from '../../redux/users-reducer'
 import Loader from '../Loader/Loader'
-import { usersAPI } from '../../api/api'
 import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import { compose } from 'redux'
 

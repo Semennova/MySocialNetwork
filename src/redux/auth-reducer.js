@@ -35,8 +35,7 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({
     
 })
 
-export const getAuthUserData = () => (dispatch) => {
-    authAPI.authMe()
+export const getAuthUserData = () => (dispatch) => {return authAPI.authMe()
     .then(response => {
       if(response.data.resultCode === 0){
        let {id, login, email} = response.data.data;

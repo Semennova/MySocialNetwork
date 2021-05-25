@@ -10,24 +10,27 @@ import News from './components/News/News';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
-import { getAuthUserData } from './redux/auth-reducer';
+import { initializeApp } from './redux/app-reducer';
 import { connect } from 'react-redux';
+import Loader from './components/Loader/Loader';
 
 
 
 class App extends React.Component {
   componentDidMount(){
-    this.props.getAuthUserData()
+    this.props.initializeApp()
   }
  
   render() {
+    if(!this.props.initialized) {
+     return  <Loader />
+    }
+
     return (
     <div className="app-wrapper">
         <HeaderContainer />
         <Nav />
         
-
-
         <div className="app-wrapper-content">
             
             <Route path='/dialogs' render={()=> <DialogsContainer  />}/>
@@ -47,4 +50,8 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { getAuthUserData })(App);
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default connect(mapStateToProps, { initializeApp })(App);
