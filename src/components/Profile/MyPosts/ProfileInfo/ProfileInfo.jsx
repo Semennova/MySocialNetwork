@@ -3,6 +3,7 @@ import Loader from '../../../Loader/Loader'
 import s from './ProfileInfo.module.css'
 import ProfileStatus from './ProfileStatus'
 import defaultPhoto from '../../../../assets/img/defaultPhoto.jpg'
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
 const ProfileInfo = (props) => {
     if(!props.profile) {
@@ -17,7 +18,7 @@ const ProfileInfo = (props) => {
 
     
 
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
 
       
     </div>
