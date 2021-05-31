@@ -1,4 +1,6 @@
+import { render } from '@testing-library/react';
 import React from 'react'
+import {Component} from 'react'
 import { Field, reduxForm } from 'redux-form';
 import { Textarea } from '../../../assets/FormControls/FormControls';
 import { required, maxLengthCreator } from '../../../utils/validators';
@@ -8,8 +10,9 @@ import Post from './Post/Post';
 
 
 
-const MyPosts = (props) => {
+const MyPosts =(props)=> {
    
+    console.log('render')
     let postsElement = props.posts
     .map(post => <Post id={post.id} message={post.message} likeCount={post.likeCount} />);
 
@@ -17,7 +20,6 @@ const MyPosts = (props) => {
     let addNewPost = (values) => {
         props.addPost(values.newPostText);
     }
-
 
     return (
 <div className={s.postsBlock}>
@@ -30,8 +32,9 @@ const MyPosts = (props) => {
   
         </div>
 </div>
-    )
-}
+        )
+    }  
+
 
 const maxLength10 = maxLengthCreator(10)
  
@@ -50,5 +53,3 @@ const AddPostFormRedux = reduxForm({form: 'newPostText'})(AddPostForm)
 
 export default MyPosts;
 
-// onChange={onPostChange} ref={newPostElement} value={props.newPostText}
-//onClick={ onAddPost } 
