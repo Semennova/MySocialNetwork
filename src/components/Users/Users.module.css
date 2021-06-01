@@ -18,12 +18,3 @@
     padding: 10px
 }
 
-.selectedPage{
-    font-weight: bold;
-}
-
-.pageNum, .selectedPage{
-    padding-left: 5px;
-    padding-right: 5px;
-    cursor: pointer;
-}

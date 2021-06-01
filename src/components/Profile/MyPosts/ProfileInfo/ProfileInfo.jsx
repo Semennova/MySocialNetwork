@@ -1,7 +1,6 @@
 import React from 'react'
 import Loader from '../../../Loader/Loader'
 import s from './ProfileInfo.module.css'
-import ProfileStatus from './ProfileStatus'
 import defaultPhoto from '../../../../assets/img/defaultPhoto.jpg'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
