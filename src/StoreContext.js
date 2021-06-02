@@ -1,5 +1,4 @@
 import React from 'react'
-// import StoreContext from './StoreContext'
 
 const StoreContext = React.createContext(null);
 
