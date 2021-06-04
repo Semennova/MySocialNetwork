@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
 
     
 
-        <ProfileStatusWithHooks {...props} status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
 
       
     </div>
