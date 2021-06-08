@@ -8,7 +8,7 @@ let User = ({user, followingInProgress, follow, unfollow}) => {
     return <div className={s.flex}>
                 <span className={s.PhotoSpan}>
                     <NavLink to={'/profile/' + user.id}>
-                        <img src={user.photos.small != null ? user.photos.small : defaultPhoto} className={s.img}/>
+                        <img alt="user-avatar" src={user.photos.small != null ? user.photos.small : defaultPhoto} className={s.img}/>
                     </NavLink>
                     
                         {user.followed ? 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers } from '../../redux/users-reducer'
 import Loader from '../Loader/Loader'
 import { compose } from 'redux'
-import { getUsers, getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount } from '../../redux/users-selectors'
+import { getUsers, getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getPortionSize } from '../../redux/users-selectors'
 
 class UsersContainer extends React.Component {
 
@@ -31,6 +31,7 @@ class UsersContainer extends React.Component {
                       unfollow={this.props.unfollow}
                       users={this.props.users}
                       followingInProgress={this.props.followingInProgress}
+                      portionSize={this.props.portionSize}
          />
          
          </>
@@ -46,11 +47,12 @@ let mapStateToProps = (state) => {
         totalCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching:  getIsFetching(state),
-        followingInProgress: getFollowingInProgress(state)
+        followingInProgress: getFollowingInProgress(state),
+        portionSize: getPortionSize(state)
     }
 }
 
  export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers, }),
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers }),
     //withAuthRedirect
 )(UsersContainer)

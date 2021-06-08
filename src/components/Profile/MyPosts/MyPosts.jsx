@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
+
 import React from 'react'
-import {Component} from 'react'
 import { Field, reduxForm } from 'redux-form';
 import { Textarea } from '../../../assets/FormControls/FormControls';
 import { required, maxLengthCreator } from '../../../utils/validators';
