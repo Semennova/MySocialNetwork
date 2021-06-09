@@ -8,7 +8,7 @@ import ProfileInfo from './MyPosts/ProfileInfo/ProfileInfo';
 const Profile = (props) => {
     return (
       <div>
-          <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus} id={props.id} />
+          <ProfileInfo savePhoto={props.savePhoto} profile={props.profile} status={props.status} updateStatus={props.updateStatus} id={props.id} isOwner={props.isOwner} />
           <MyPostsContainer />
       </div>
     )

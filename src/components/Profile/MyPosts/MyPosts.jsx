@@ -11,7 +11,6 @@ import Post from './Post/Post';
 
 const MyPosts =(props)=> {
    
-    console.log('render')
     let postsElement = props.posts
     .map(post => <Post id={post.id} message={post.message} likeCount={post.likeCount} />);
 

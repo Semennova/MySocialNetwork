@@ -4,22 +4,24 @@ import * as axios from 'axios'
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-    // headers: {"APY-KEY" : "f94f7938-acb5-4040-a437-b012bb3a9897"}
+    headers: {"APY-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}
 })
 
 
 export const usersAPI = {
+
     getUsers(currentPage, pageSize) {
-        return  instance.get(`users?page=${currentPage}&count=${pageSize}`)
+        return  axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {withCredentials: true, headers: {'API-KEY': '952cf46c-d9ba-4e3b-95bd-624df91bb6ed'}})
         .then(response => response.data)
     },
 
+
     follow(userId) {
-        return axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {withCredentials: true, headers: {"API-KEY" : "f94f7938-acb5-4040-a437-b012bb3a9897"}})
+        return axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
 
     unfollow(userId) {
-        return axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {withCredentials: true, headers: {"API-KEY" : "f94f7938-acb5-4040-a437-b012bb3a9897"}})
+        return axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
 
     getProfile(userId) {
@@ -31,27 +33,39 @@ export const usersAPI = {
 
 export const profileAPI = {
     getProfile(userId) {
-        return instance.get(`profile/` + userId)
+        return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
 
     getStatus(userId) {
-        return instance.get(`profile/status/` + userId)
+        return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/status/${userId}`, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
 
     updateStatus(status) {
-        return axios.put('https://social-network.samuraijs.com/api/1.0/profile/status', { status: status }, {withCredentials: true, headers: {"API-KEY" : "f94f7938-acb5-4040-a437-b012bb3a9897"}})
+        return axios.put('https://social-network.samuraijs.com/api/1.0/profile/status', { status: status }, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
+    },
+
+    savePhoto(photoFile){
+        const formData = new FormData();
+
+        formData.append("image", photoFile);
+
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+            'Content-Type': 'multipart/form-data'}
+        })
     }
+
 }
 
 export const authAPI = {
     authMe(){
-        return instance.get(`auth/me`)
+        return axios.get('https://social-network.samuraijs.com/api/1.0/auth/me', {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
     login(email, password, rememberMe = false){
-        return instance.post(`auth/login`, {email, password, rememberMe})
+        return axios.post('https://social-network.samuraijs.com/api/1.0/auth/login', {email, password, rememberMe}, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
     logout(){
-        return instance.delete(`auth/login`)
+        return axios.delete('https://social-network.samuraijs.com/api/1.0/auth/login', {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     }
 }
 
