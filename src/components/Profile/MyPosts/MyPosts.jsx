@@ -12,7 +12,7 @@ import Post from './Post/Post';
 const MyPosts =(props)=> {
    
     let postsElement = props.posts
-    .map(post => <Post id={post.id} message={post.message} likeCount={post.likeCount} />);
+    .map(post => <Post key={post.id} id={post.id} message={post.message} likeCount={post.likeCount} />);
 
 
     let addNewPost = (values) => {

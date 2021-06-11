@@ -4,7 +4,7 @@ import * as axios from 'axios'
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-    headers: {"APY-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}
+    // headers: {"APY-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}
 })
 
 
@@ -49,9 +49,13 @@ export const profileAPI = {
 
         formData.append("image", photoFile);
 
-        return instance.put(`profile/photo`, formData, {
-            headers: {
-            'Content-Type': 'multipart/form-data'}
+        return instance.put('https://social-network.samuraijs.com/api/1.0/profile/photo', formData, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}
+        })
+    },
+
+    saveProfile(profile){
+
+        return instance.put('https://social-network.samuraijs.com/api/1.0/profile', profile, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}
         })
     }
 
@@ -68,6 +72,9 @@ export const authAPI = {
         return axios.delete('https://social-network.samuraijs.com/api/1.0/auth/login', {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     }
 }
+
+// headers: {
+//     'Content-Type': 'multipart/form-data'}
 
 
 

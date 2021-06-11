@@ -12,3 +12,18 @@
     display: block;
     margin-bottom: 10px
   }
+
+  .contacts{
+    margin: 10px 0;
+    padding-left: 10px;
+  }
+
+  .socialMedia{
+    padding-left: 10px;
+  }
+
+  .formSummeryError{
+    display: inline;
+    border: 1px solid red;
+    color: red
+  }
