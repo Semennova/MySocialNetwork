@@ -2,7 +2,7 @@ import React from 'react'
 import s from './Dialogs.module.css'
 import DialogItems from './DialogItem/DialogItem'
 import Message from './Message/Message'
-// import { Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 import { Field, reduxForm } from 'redux-form'
 import { Textarea } from '../../assets/FormControls/FormControls'
 import { maxLengthCreator, required } from '../../utils/validators'
@@ -13,19 +13,19 @@ const Dialogs = (props) => {
     let state = props.dialogsPage;
 
     let dialogElements = state.dialogs
-    .map(dialog => <DialogItems name={dialog.name} id={dialog.id} />)
+    .map(dialog => <DialogItems key={dialog.id} name={dialog.name} id={dialog.id} />)
     
     let messagesElements = state.messages
-    .map(message => <Message message={message.message} id={message.id} />)
+    .map(message => <Message key={message.id} message={message.message} id={message.id} />)
 
     let addNewMessage = (values) => {
         props.addMessage(values.newMessageText)
        
     }
 
-    // if(!props.isAuth) {
-    //     return <Redirect to='/login' />
-    // }
+    if(!props.isAuth) {
+        return <Redirect to='/login' />
+    }
 
     return (
         

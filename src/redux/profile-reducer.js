@@ -127,9 +127,13 @@ export const savePhoto = (file) => async(dispatch) => {
              if(response.data.resultCode === 0) {
               dispatch(getUserProfile(userId))
          } else {
-             dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0]}))
+            let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
+             dispatch(stopSubmit("edit-profile", {_error: message} 
+             ));
          }
  
  }
 
 export default profileReducer;
+
+//response.data.messages[0]

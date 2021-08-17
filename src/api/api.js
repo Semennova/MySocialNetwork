@@ -65,11 +65,18 @@ export const authAPI = {
     authMe(){
         return axios.get('https://social-network.samuraijs.com/api/1.0/auth/me', {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
-    login(email, password, rememberMe = false){
-        return axios.post('https://social-network.samuraijs.com/api/1.0/auth/login', {email, password, rememberMe}, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
+    login(email, password, rememberMe = false, captcha = null){
+        return axios.post('https://social-network.samuraijs.com/api/1.0/auth/login', {email, password, rememberMe, captcha}, {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
     },
     logout(){
         return axios.delete('https://social-network.samuraijs.com/api/1.0/auth/login', {withCredentials: true, headers: {"API-KEY" : "952cf46c-d9ba-4e3b-95bd-624df91bb6ed"}})
+    }
+}
+
+
+export const security = {
+    getCaptchaUrl() {
+        return axios.get('https://social-network.samuraijs.com/api/1.0/security/get-captcha-url', {withCredentials: true, headers: {'API-KEY': '952cf46c-d9ba-4e3b-95bd-624df91bb6ed'}})
     }
 }
 
